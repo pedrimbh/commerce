@@ -23,7 +23,7 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
-    @OneToMany(mappedBy = "id.product")
+    @OneToMany(mappedBy = "id.product",cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<OrderItem> orderItems = new HashSet<>();
 
     public  Product(){
